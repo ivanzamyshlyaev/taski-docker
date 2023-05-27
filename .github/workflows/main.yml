@@ -174,7 +174,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         source: "docker-compose.production.yml"
-        target: "Taski"
+        target: "taski"
     - name: Executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
@@ -184,9 +184,9 @@ jobs:
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         # Параметр script передаёт в action appleboy/ssh-action команды,
         # которые нужно выполнить на сервере, 
-        # с которым установлено соединениеn
+        # с которым установлено соединениеn1
         script: |
-          cd Taski
+          cd taski
           # Выполняет pull образов с DockerHub
           sudo docker compose -f docker-compose.production.yml pull
           # Перезапускает все контейнеры в docker compose
